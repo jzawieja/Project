@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.playingfield = new System.Windows.Forms.PictureBox();
             this.score = new System.Windows.Forms.Label();
             this.realscore = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.playingfield)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,6 +86,7 @@
         private System.Windows.Forms.PictureBox playingfield;
         private System.Windows.Forms.Label score;
         private System.Windows.Forms.Label realscore;
+        private System.Windows.Forms.Timer timer;
     }
 }
 
