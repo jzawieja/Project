@@ -36,6 +36,7 @@
             // 
             // playingfield
             // 
+            this.playingfield.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.playingfield.Location = new System.Drawing.Point(12, 12);
             this.playingfield.Name = "playingfield";
             this.playingfield.Size = new System.Drawing.Size(336, 336);
@@ -65,6 +66,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(530, 360);
             this.Controls.Add(this.realscore);
             this.Controls.Add(this.score);
