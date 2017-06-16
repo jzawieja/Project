@@ -22,7 +22,7 @@ namespace Snake
             new Settings();
 
             timer.Interval = 1000 / Settings.Speed;
-            timer.Tick += UpdateScreen();
+            timer.Tick += UpdateScreen;
             timer.Start();
 
             StartGame();
@@ -108,6 +108,37 @@ namespace Snake
                 string gameOver = "Game Over \n Finale Score: " + Settings.Score + "\n Press Enter for New Game";
                 endgame.Text = gameOver;
                 endgame.Visible = true;
+            }
+        }
+
+
+        private void MovePlayer()
+        {
+            for (int i = Snake.Count - 1; i >= 0; i--)
+            {
+                if(i == 0)
+                {
+                    switch (Settings.direction)
+                    {
+                        case Direction.up:
+                            Snake[i].Y--;
+                            break;
+                        case Direction.down:
+                            Snake[i].Y++;
+                            break;
+                        case Direction.right:
+                            Snake[i].X++;
+                            break;
+                        case Direction.left:
+                            Snake[i].X--;
+                            break;
+                    }
+                }
+                else
+                {
+                    Snake[i].X = Snake[i - 1].X;
+                    Snake[i].Y = Snake[i - 1].Y;
+                }
             }
         }
     }
