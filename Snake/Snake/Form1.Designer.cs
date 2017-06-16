@@ -33,6 +33,7 @@
             this.score = new System.Windows.Forms.Label();
             this.realscore = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.endgame = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.playingfield)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,6 +45,7 @@
             this.playingfield.Size = new System.Drawing.Size(336, 336);
             this.playingfield.TabIndex = 0;
             this.playingfield.TabStop = false;
+            this.playingfield.Paint += new System.Windows.Forms.PaintEventHandler(this.playingfield_Paint);
             // 
             // score
             // 
@@ -64,12 +66,24 @@
             this.realscore.Size = new System.Drawing.Size(0, 29);
             this.realscore.TabIndex = 2;
             // 
+            // endgame
+            // 
+            this.endgame.AutoSize = true;
+            this.endgame.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.endgame.Location = new System.Drawing.Point(67, 64);
+            this.endgame.Name = "endgame";
+            this.endgame.Size = new System.Drawing.Size(60, 24);
+            this.endgame.TabIndex = 3;
+            this.endgame.Text = "label1";
+            this.endgame.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(530, 360);
+            this.Controls.Add(this.endgame);
             this.Controls.Add(this.realscore);
             this.Controls.Add(this.score);
             this.Controls.Add(this.playingfield);
@@ -87,6 +101,7 @@
         private System.Windows.Forms.Label score;
         private System.Windows.Forms.Label realscore;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Label endgame;
     }
 }
 

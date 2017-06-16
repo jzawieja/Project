@@ -29,6 +29,7 @@ namespace Snake
         }
         private void StartGame()
         {
+            endgame.Visible = false;
             new Settings();
 
             Snake.Clear();
@@ -51,7 +52,7 @@ namespace Snake
         food.X = random.Next(0, maxXpos);
         food.Y = random.Next(0, maxYpos);
             }
-    private void UpdateScreen (object sender, EventArgs e)
+        private void UpdateScreen (object sender, EventArgs e)
     {
         if (Settings.GameOver == true)
         {
@@ -73,9 +74,41 @@ namespace Snake
 
                 MovePlayer();
             }
-          
+            playingfield.Invalidate();
 
-    }
+        }
 
+        private void playingfield_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics field = e.Graphics;
+            if (Settings.GameOver != false)
+            {
+                Brush snakeColour;
+                for (int i = 0; i< Snake.Count; i++ )
+                {
+                    if (i == 0)
+                        snakeColour = Brushes.DarkBlue;
+                    else
+                        snakeColour = Brushes.Beige;
+                    field.FillEllipse(snakeColour, 
+                        new Rectangle(Snake[i].X * Settings.Width,
+                        Snake[i].Y * Settings.Height, 
+                        Settings.Width, 
+                        Settings.Height));
+
+                    field.FillEllipse(Brushes.Pink, 
+                        new Rectangle(food.X * Settings.Width,
+                        food.Y * Settings.Height, 
+                        Settings.Width, 
+                        Settings.Height));
+                }
+            }
+            else
+            {
+                string gameOver = "Game Over \n Finale Score: " + Settings.Score + "\n Press Enter for New Game";
+                endgame.Text = gameOver;
+                endgame.Visible = true;
+            }
+        }
     }
 }
