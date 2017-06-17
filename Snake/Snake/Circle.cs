@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    class Ractangle
+    class Circle
     {
         public int X { get; set; }
         public int Y { get; set; }
 
-        public Ractangle ()
+        public Circle ()
         {
             X = 0;
             Y = 0;

@@ -31,7 +31,7 @@ namespace Snake
             Height = 20;
             Width = 20;
             GameOver = false;
-            direction = Direction.right;
+            direction = Direction.down;
         }
     }
 }

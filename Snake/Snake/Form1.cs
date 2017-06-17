@@ -12,8 +12,8 @@ namespace Snake
 {
     public partial class Form1 : Form
     {
-        private List<Ractangle> Snake = new List<Ractangle>();
-        private Ractangle food = new Ractangle();
+        private List<Circle> Snake = new List<Circle>();
+        private Circle food = new Circle();
 
         public Form1()
         {
@@ -33,9 +33,9 @@ namespace Snake
             new Settings();
 
             Snake.Clear();
-            Ractangle head = new Ractangle();
-            head.X = 20;
-            head.Y = 20;
+            Circle head = new Circle();
+            head.X = 10;
+            head.Y = 5;
             Snake.Add(head);
 
             realscore.Text = Settings.Score.ToString();
@@ -48,7 +48,7 @@ namespace Snake
         int maxYpos = playingfield.Size.Height / Settings.Height;
 
         Random random = new Random();
-        food = new Ractangle();
+        food = new Circle();
         food.X = random.Next(0, maxXpos);
         food.Y = random.Next(0, maxYpos);
             }
@@ -81,25 +81,25 @@ namespace Snake
         private void playingfield_Paint(object sender, PaintEventArgs e)
         {
             Graphics field = e.Graphics;
-            if (Settings.GameOver != false)
+            if (!Settings.GameOver)
             {
                 Brush snakeColour;
                 for (int i = 0; i< Snake.Count; i++ )
                 {
                     if (i == 0)
-                        snakeColour = Brushes.DarkBlue;
+                        snakeColour = Brushes.Chocolate;
                     else
                         snakeColour = Brushes.Beige;
                     field.FillEllipse(snakeColour, 
                         new Rectangle(Snake[i].X * Settings.Width,
-                        Snake[i].Y * Settings.Height, 
-                        Settings.Width, 
+                        Snake[i].Y * Settings.Height,
+                        Settings.Width,
                         Settings.Height));
 
-                    field.FillEllipse(Brushes.Pink, 
+                    field.FillEllipse(Brushes.DeepPink, 
                         new Rectangle(food.X * Settings.Width,
-                        food.Y * Settings.Height, 
-                        Settings.Width, 
+                        food.Y * Settings.Height,
+                        Settings.Width,
                         Settings.Height));
                 }
             }
@@ -116,7 +116,7 @@ namespace Snake
         {
             for (int i = Snake.Count - 1; i >= 0; i--)
             {
-                if(i == 0)
+                if (i == 0)
                 {
                     switch (Settings.direction)
                     {
@@ -133,6 +133,27 @@ namespace Snake
                             Snake[i].X--;
                             break;
                     }
+                    int maxXpos = playingfield.Size.Width / Settings.Width;
+                    int maxYpos = playingfield.Size.Height / Settings.Height;
+
+                    if (Snake[i].X < 0 || Snake[i].Y < 0
+                        || Snake[i].X >= maxXpos || Snake[i].Y >= maxYpos) ;
+                    {
+                       // Die();
+                    }
+
+                    for (int j=1; j < Snake.Count; j++)
+                    {
+                        if (Snake[i].X == Snake[j].X &&
+                            Snake[i].Y == Snake[j].Y)
+                        {
+                           // Die();
+                        }
+                    }
+                    if (Snake[0].X == food.X && Snake[0].Y == food.Y)
+                    {
+                      //  Eat();
+                    }
                 }
                 else
                 {
@@ -140,6 +161,16 @@ namespace Snake
                     Snake[i].Y = Snake[i - 1].Y;
                 }
             }
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            Press.ChangeState(e.KeyCode, true);
+        }
+
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            Press.ChangeState(e.KeyCode, false);
         }
     }
 }
