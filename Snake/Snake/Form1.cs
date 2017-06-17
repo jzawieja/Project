@@ -139,7 +139,7 @@ namespace Snake
                     if (Snake[i].X < 0 || Snake[i].Y < 0
                         || Snake[i].X >= maxXpos || Snake[i].Y >= maxYpos) ;
                     {
-                       // Die();
+                         Die();
                     }
 
                     for (int j=1; j < Snake.Count; j++)
@@ -147,12 +147,12 @@ namespace Snake
                         if (Snake[i].X == Snake[j].X &&
                             Snake[i].Y == Snake[j].Y)
                         {
-                           // Die();
+                          Die();
                         }
                     }
                     if (Snake[0].X == food.X && Snake[0].Y == food.Y)
                     {
-                      //  Eat();
+                       Eat();
                     }
                 }
                 else
@@ -161,6 +161,25 @@ namespace Snake
                     Snake[i].Y = Snake[i - 1].Y;
                 }
             }
+        }
+
+        private void Eat()
+        {
+            Circle food = new Circle();
+            food.X = Snake[Snake.Count - 1].X;
+            food.Y = Snake[Snake.Count - 1].Y;
+
+            Snake.Add(food);
+
+            Settings.Score += Settings.Points;
+            realscore.Text = Settings.Score.ToString();
+
+            NewFood();
+        }
+
+        private void Die()
+        {
+            Settings.GameOver = true;
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
