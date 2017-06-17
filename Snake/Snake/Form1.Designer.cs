@@ -42,7 +42,7 @@
             this.playingfield.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.playingfield.Location = new System.Drawing.Point(12, 12);
             this.playingfield.Name = "playingfield";
-            this.playingfield.Size = new System.Drawing.Size(336, 336);
+            this.playingfield.Size = new System.Drawing.Size(500, 500);
             this.playingfield.TabIndex = 0;
             this.playingfield.TabStop = false;
             this.playingfield.Paint += new System.Windows.Forms.PaintEventHandler(this.playingfield_Paint);
@@ -51,7 +51,7 @@
             // 
             this.score.AutoSize = true;
             this.score.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.score.Location = new System.Drawing.Point(365, 21);
+            this.score.Location = new System.Drawing.Point(532, 14);
             this.score.Name = "score";
             this.score.Size = new System.Drawing.Size(89, 29);
             this.score.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             this.realscore.AutoSize = true;
             this.realscore.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.realscore.Location = new System.Drawing.Point(467, 19);
+            this.realscore.Location = new System.Drawing.Point(634, 12);
             this.realscore.Name = "realscore";
             this.realscore.Size = new System.Drawing.Size(0, 29);
             this.realscore.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             this.endgame.AutoSize = true;
             this.endgame.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.endgame.Location = new System.Drawing.Point(67, 64);
+            this.endgame.Location = new System.Drawing.Point(141, 103);
             this.endgame.Name = "endgame";
             this.endgame.Size = new System.Drawing.Size(60, 24);
             this.endgame.TabIndex = 3;
@@ -82,7 +82,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(530, 360);
+            this.ClientSize = new System.Drawing.Size(688, 458);
             this.Controls.Add(this.endgame);
             this.Controls.Add(this.realscore);
             this.Controls.Add(this.score);

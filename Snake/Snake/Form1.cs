@@ -137,7 +137,7 @@ namespace Snake
                     int maxYpos = playingfield.Size.Height / Settings.Height;
 
                     if (Snake[i].X < 0 || Snake[i].Y < 0
-                        || Snake[i].X >= maxXpos || Snake[i].Y >= maxYpos) ;
+                        || Snake[i].X >= maxXpos || Snake[i].Y >= maxYpos) 
                     {
                          Die();
                     }
@@ -191,5 +191,6 @@ namespace Snake
         {
             Press.ChangeState(e.KeyCode, false);
         }
+
     }
 }
