@@ -81,7 +81,7 @@ namespace Snake
         private void playingfield_Paint(object sender, PaintEventArgs e)
         {
             Graphics field = e.Graphics;
-            if (!Settings.GameOver)
+            if (!Settings.GameOver) // Ta linijka genetuje jakiś problem. Przez nią aplikacja nie działa prawidłowo.
             {
                 Brush snakeColour;
                 for (int i = 0; i< Snake.Count; i++ )
